@@ -28,16 +28,16 @@ public class UserServiceImpl implements UserService {
 //    private final PasswordEncoder passwordEncoder;
     private final UserMapper userMapper;
     private final RoleRepository roleRepository;
-//    @PostConstruct
-//    public void initializeRoles() {
-//
-//        for (RoleType roleType : RoleType.values()) {
-//            if (roleRepository.findByAuthority(roleType).isEmpty()) {
-//                Role role = Role.from(roleType);
-//                roleRepository.save(role);
-//            }
-//        }
-//    }
+    @PostConstruct
+    public void initializeRoles() {
+
+        for (RoleType roleType : RoleType.values()) {
+            if (roleRepository.findByAuthority(roleType).isEmpty()) {
+                Role role = Role.from(roleType);
+                roleRepository.save(role);
+            }
+        }
+    }
 
 
 
