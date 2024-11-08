@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        show_sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/parking_db
+    username: postgres
+    password: 123
+    hikari:
+      schema: parking_schema
+      connection-init-sql: CREATE SCHEMA IF NOT EXISTS parking_schema
+      connection-timeout: 10000
+app:
+  jwt:
+    secret: "someHotelKey"
+    tokenExpiration: 15h
+    refreshTokenExpiration: 30m
+  parking:
+    name: "Main Parking"
+#  kafka:
+#    userRegistrationTopic: "registration-topic"
+#    bookingRegistrationTopic: "booking-topic"
+#    kafkaMessageGroupId: "kafka-message-group-id"
+server:
+  port: 8090
